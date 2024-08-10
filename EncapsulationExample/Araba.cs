@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using System.Linq;
@@ -27,7 +27,7 @@ namespace EncapsulationExample
             }
             set
             {
-                if (!string.IsNullOrWhiteSpace(value))
+                if (!string.IsNullOrWhiteSpace(value)) // Eğer value null yada boş değilse _brand gelen value değerini alır
                     _brand = value;
 
                 else
@@ -44,7 +44,7 @@ namespace EncapsulationExample
             }
             set
             {
-                if (!string.IsNullOrWhiteSpace(value))
+                if (!string.IsNullOrWhiteSpace(value)) // Eğer value null yada boş değilse _model gelen value değerini alır
                     _model = value;
 
                 else
@@ -60,7 +60,7 @@ namespace EncapsulationExample
             }
             set
             {
-                if (!string.IsNullOrWhiteSpace(value))
+                if (!string.IsNullOrWhiteSpace(value)) // Eğer value null yada boş değilse _model gelen value değerini alır
                     _color = value;
                 else
                     Console.WriteLine("Arabanın rengi boş olamaz.");
@@ -75,7 +75,7 @@ namespace EncapsulationExample
             }
             set
             {
-                if (value == 2 || value == 4)
+                if (value == 2 || value == 4) // Eğer value 2 yada 4 değerlerinden biri ise _doorCount gelen value değerini alır
                 {
 
                     _doorCount = value;
@@ -88,12 +88,12 @@ namespace EncapsulationExample
             }
         }
 
-        public Araba()
+        public Araba() // Default Constructor
         {
 
         }
 
-        public Araba(string brand, string model, string color, int doorCount)
+        public Araba(string brand, string model, string color, int doorCount) // Parametre alan Constructor
         {
             Brand = brand;
             Model = model;
@@ -102,9 +102,8 @@ namespace EncapsulationExample
 
         }
 
-        public void TellInfo()
-        {
-            
+        public void TellInfo() // Bilgilerin alındığı ve ekrana yazdırılan metot
+        {            
                 Console.WriteLine($"Arabanın markası : {_brand}\nArabanın modeli : {_model}\nArabanın rengi : {_color}\nArabanın kapı sayısı : {_doorCount}");
         }
     }
